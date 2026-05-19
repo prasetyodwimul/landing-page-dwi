@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kedai Roti Dwibayashi</title>
+
+<!-- Menggunakan Lora untuk kesan klasik/jadul, dan DM Sans untuk kemudahan membaca -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-color: #F6F3ED; /* Putih tulang/krem ala tembok rumah lawas */
+    --text-main: #302A25;
+    --text-muted: #6B6258;
+    --accent: #A25942; /* Merah bata/terracotta pudar untuk kesan vintage */
+    --border-color: #E2DACD;
+    --dark-bg: #2C352E; /* Hijau lumut sangat tua/hitam untuk footer/notes */
+    --card-bg: #FFFFFF;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .logo {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+  }
+
+  header {
+    padding: 20px 7%;
+    background: rgba(246, 243, 237, 0.85);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  .hero {
+    min-height: 85vh;
+    padding: 80px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 5vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--text-main);
+  }
+
+  .hero p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 90%;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--text-main);
+    color: var(--bg-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--text-main);
+  }
+
+  .btn:hover {
+    background: transparent;
+    color: var(--text-main);
+  }
+
+  .link {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .hero-image {
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .opening-card {
+    position: absolute;
+    left: -40px;
+    bottom: 40px;
+    background: var(--card-bg);
+    padding: 24px 32px;
+    border: 1px solid var(--border-color);
+    box-shadow: 4px 4px 0px rgba(162, 89, 66, 0.15); 
+  }
+
+  .opening-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--text-main);
+  }
+
+  .opening-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .section {
+    padding: 100px 7%;
+  }
+
+  .story {
+    background: var(--card-bg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .story img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .story-text span,
+  .menu-title span {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .story-text h2,
+  .menu-title h2 {
+    font-size: clamp(32px, 4vw, 42px);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .story-text p,
+  .menu-title p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  .menu-title {
+    max-width: 600px;
+    margin-bottom: 60px;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .menu-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(44, 38, 33, 0.05);
+  }
+
+  .menu-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .menu-info {
+    padding: 24px;
+  }
+
+  .menu-info h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .menu-info p {
+    color: var(--text-muted);
+    font-size: 14px;
+    min-height: 48px;
+  }
+
+  .price {
+    margin-top: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    display: inline-block;
+  }
+
+  .note {
+    margin-top: 80px;
+    padding: 60px 50px;
+    background: var(--dark-bg);
+    color: var(--bg-color);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  .note h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #F6F3ED;
+  }
+
+  .note p {
+    color: #B5BDB6;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .contact {
+    text-align: center;
+    background: var(--bg-color);
+    padding: 100px 7%;
+  }
+
+  .contact h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .contact p {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  footer {
+    padding: 32px 7%;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media(max-width: 900px) {
+    .hero, .story {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .hero-image img {
+      height: 450px;
+    }
+
+    .opening-card {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      margin-top: -40px;
+      margin-left: 20px;
+      margin-right: 20px;
+      width: calc(100% - 40px);
+    }
+  }
+
+  @media(max-width: 600px) {
+    nav {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .section {
+      padding: 60px 5%;
+    }
+
+    .note {
+      padding: 40px 24px;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Kedai Roti Dwibayashi</div>
+    <ul>
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#story">Cerita</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#contact">Mampir</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <span class="label">Roti Hangat & Resep Rumahan</span>
+    <h1>Seperti pulang ke rumah nenek, ada roti dan kopi menanti.</h1>
+    <p>
+      Menempati bangunan bernuansa kolonial di sudut Bandung, Dwibayashi menyajikan aneka roti bakar, kudapan, dan makanan berat dengan harga yang ramah di kantong. Mampir pagi untuk sarapan, atau sore untuk sekadar bersantai.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#menu" class="btn">Intip Menu Kami</a>
+      <a href="#story" class="link">Baca cerita kedai</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Roti hangat segar">
+    <div class="opening-card">
+      <h3>Buka Setiap Hari</h3>
+      <p>Senin – Minggu<br>08.00 - 21.30 WIB</p>
+    </div>
+  </div>
+</section>
+
+<section class="story section" id="story">
+  <div>
+    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80" alt="Interior kedai vintage">
+  </div>
+
+  <div class="story-text">
+    <span>Tentang Kami</span>
+    <h2>Nuansa klasik, rasa yang jujur.</h2>
+    <p>
+      Berawal dari keinginan menyajikan makanan enak yang bisa dinikmati siapa saja. Kami mempertahankan ubin lawas, kursi kayu jadul, dan pajangan keramik agar Anda merasa nyaman layaknya di ruang tamu sendiri.
+      Bukan tempat yang mewah, tapi kami berjanji setiap pesanan dibuat sepenuh hati.
+    </p>
+  </div>
+</section>
+
+<section class="menu section" id="menu">
+  <div class="menu-title">
+    <span>Kesukaan Banyak Orang</span>
+    <h2>Sederhana, murah, dan mengenyangkan.</h2>
+    <p>
+      Dari roti isi daging hangat untuk memulai hari, hingga porsi berat yang cocok untuk makan siang. Harga tertera adalah harga riil.
+    </p>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card">
+      <!-- Gambar roti hot beef -->
+      <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80" alt="Roti Hot Beef">
+      <div class="menu-info">
+        <h3>Roti Hot Beef</h3>
+        <p>Roti panggang renyah dengan isian irisan daging sapi gurih, bawang bombay, dan keju lumer yang bikin nagih.</p>
+        <div class="price">Rp22.000</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80" alt="Pizza rumahan">
+      <div class="menu-info">
+        <h3>Pizza Meat Lover</h3>
+        <p>Pizza tipis ala rumahan dengan taburan daging cincang, sosis, dan keju mozzarella yang meleleh sempurna.</p>
+        <div class="price">Rp25.000</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=700&q=80" alt="Mie kuah rempah">
+      <div class="menu-info">
+        <h3>Indomie Bangladesh</h3>
+        <p>Racikan mie dengan bumbu rempah khas yang kental, gurih, dan pedas. Pas untuk menemani sore yang mendung.</p>
+        <div class="price">Rp15.000</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <div>
+      <h3>Harga Bersahabat</h3>
+      <p>Menu kami dirancang agar terjangkau untuk mahasiswa maupun keluarga. Makan kenyang tanpa khawatir kantong jebol.</p>
+    </div>
+    <div>
+      <h3>Suasana Rumahan</h3>
+      <p>Tidak ada musik berisik. Hanya alunan nada pelan, aroma panggangan roti, dan rimbunnya pohon di halaman depan.</p>
+    </div>
+    <div>
+      <h3>Pesan Singkat</h3>
+      <p>Karena selalu ramai di akhir pekan, waktu tunggu pesanan mungkin sedikit lebih lama. Terima kasih atas kesabarannya!</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact section" id="contact">
+  <h2>Mampir hari ini?</h2>
+  <p>Jl. Tamansari, Lebak Siliwangi, Bandung.<br>Kami tidak menerima reservasi, silakan datang langsung dan pilih tempat duduk favorit Anda.</p>
+  <a href="#" class="btn">Buka Google Maps</a>
+</section>
+
+<footer>
+  <div>&copy; 2026 Kedai Roti Dwibayashi</div>
+  <div>Bandung, Jawa Barat</div>
+</footer>
+
+</body>
+</html>
