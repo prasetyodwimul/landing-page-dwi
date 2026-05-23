@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KarierMuda | Mulai Karier Pertamamu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="src/css/main.css" />
+  </head>
+
+  <body>
+    <div class="loader" id="loader">
+      <div class="loader-box">
+        <div class="loader-circle"></div>
+        <p>Menyiapkan peluang...</p>
+      </div>
+    </div>
+
+    <header data-aos="fade-down">
+      <nav>
+        <div class="logo">Karier<span>Muda</span></div>
+        <ul>
+          <li><a href="#fitur">Fitur</a></li>
+          <li><a href="#lowongan">Lowongan</a></li>
+          <li><a href="#checklist">Checklist</a></li>
+          <li><a href="#tips">Tips</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li>
+            <button class="theme-toggle" id="themeToggle">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+              </svg>
+              Gelap
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div data-aos="fade-right">
+        <span class="label">Untuk mahasiswa & fresh graduate</span>
+        <h1>
+          <span class="hero-title-line">Mulai karier pertamamu</span>
+          <span class="gradient-text">tanpa rasa bingung.</span>
+        </h1>
+        <p>
+          KarierMuda membantu menemukan lowongan magang, pekerjaan pertama,
+          serta panduan sederhana menyiapkan CV dan portofolio untuk memulai
+          langkah suksesmu.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#lowongan" class="btn">Cari Lowongan</a>
+          <a href="#fitur" class="btn btn-outline">Pelajari Fitur</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" data-aos="fade-left">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+          class="hero-main-img"
+          alt="Mahasiswa bekerja"
+        />
+
+        <div class="company-row">
+          <img src="src/img/google.png" alt="Google" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+            alt="Microsoft"
+          />
+          <img src="https://cdn.simpleicons.org/gojek" alt="Gojek" />
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Tokopedia"
+          />
+        </div>
+
+        <div class="job-list">
+          <div class="job-mini">
+            <span>Magang</span>
+            <h4>UI/UX Designer Intern</h4>
+            <p>Remote • Mahasiswa akhir</p>
+          </div>
+
+          <div class="job-mini">
+            <span>Full Time</span>
+            <h4>Junior Frontend Developer</h4>
+            <p>Bandung • Fresh Graduate</p>
+          </div>
+        </div>
+
+        <div class="floating-box">
+          <strong>128+</strong>
+          <span>Lowongan baru minggu ini</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats section">
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="fade-up">
+          <h3><span class="counter" data-target="128">0</span>+</h3>
+          <p>Lowongan tersedia</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <h3><span class="counter" data-target="40">0</span>+</h3>
+          <p>Perusahaan partner</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+          <h3><span class="counter" data-target="1200">0</span>+</h3>
+          <p>Pengguna terbantu</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section" id="fitur">
+      <div class="section-title" data-aos="fade-up">
+        <span>Fitur Utama</span>
+        <h2>Dibuat supaya proses mencari kerja terasa lebih terarah.</h2>
+        <p>
+          Website ini dirancang dengan navigasi sederhana, informasi jelas, dan
+          fitur yang sesuai dengan kebutuhan mahasiswa maupun lulusan baru.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card" data-aos="fade-up">
+          <div class="number">01</div>
+          <h3>Lowongan Terpilih</h3>
+          <p>
+            Menampilkan lowongan magang, kerja pertama, dan freelance yang ramah
+            untuk pemula.
+          </p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="number">02</div>
+          <h3>Panduan CV</h3>
+          <p>
+            Memberikan arahan singkat agar pengguna tahu bagian apa saja yang
+            harus disiapkan.
+          </p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="number">03</div>
+          <h3>Filter Karier</h3>
+          <p>
+            Pengguna dapat melihat kategori pekerjaan berdasarkan lokasi, tipe
+            kerja, dan bidang minat.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lowongan">
+      <div class="section-title" data-aos="fade-up">
+        <span>Lowongan terbaru </span>
+        <h2>Temukan lowongan yang pas untukmu.</h2>
+        <p>
+          Ketik kata kunci atau klik kategori untuk melihat lowongan berdasarkan
+          tipe kerja dan lokasi.
+        </p>
+      </div>
+
+      <div class="search-box" data-aos="fade-up">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari posisi... (Contoh: Frontend, UI/UX, Magang)"
+        />
+      </div>
+
+      <div class="filter-box" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="semua">Semua</button>
+        <button class="filter-btn" data-filter="magang">Magang</button>
+        <button class="filter-btn" data-filter="fulltime">Full Time</button>
+        <button class="filter-btn" data-filter="remote">Remote</button>
+        <button class="filter-btn" data-filter="bandung">Bandung</button>
+        <button class="filter-btn" data-filter="saved">Tersimpan</button>
+      </div>
+
+      <div class="jobs-grid">
+        <!-- Job 1 -->
+        <div
+          class="job-card"
+          data-category="magang remote ui ux designer"
+          data-title="UI/UX Designer Intern"
+          data-company="Studio Kreatif Bandung"
+          data-type="Magang"
+          data-desc="Membantu membuat wireframe, prototype, dan evaluasi tampilan aplikasi untuk klien lokal dan internasional."
+          data-req="Memahami dasar Figma; Punya minat pada produk digital; Komunikatif"
+          data-benefit="Sertifikat magang resmi; Mentoring mingguan; Jam kerja fleksibel"
+        >
+          <div class="job-top">
+            <div>
+              <div class="job-tag">Magang</div>
+              <h3>UI/UX Designer Intern</h3>
+            </div>
+            <button class="bookmark-btn">☆</button>
+          </div>
+          <p class="company-name">Studio Kreatif Bandung</p>
+          <div class="job-meta">
+            <span>Remote</span>
+            <span>3 Bulan</span>
+            <span>Mahasiswa</span>
+          </div>
+          <div class="spacer"></div>
+          <hr />
+          <button class="apply-link">Lihat Detail Posisi</button>
+        </div>
+
+        <!-- Job 2 -->
+        <div
+          class="job-card"
+          data-category="fulltime bandung frontend developer react"
+          data-title="Junior Frontend Developer"
+          data-company="Tech House Indonesia"
+          data-type="Full Time"
+          data-desc="Membangun antarmuka website yang responsif menggunakan HTML, CSS, JavaScript, dan framework React."
+          data-req="Menguasai dasar web development; Memahami konsep API; Memiliki portofolio GitHub"
+          data-benefit="Gaji & Tunjangan; Sistem kerja Hybrid; Budget belajar tahunan"
+        >
+          <div class="job-top">
+            <div>
+              <div class="job-tag">Full Time</div>
+              <h3>Junior Frontend Developer</h3>
+            </div>
+            <button class="bookmark-btn">☆</button>
+          </div>
+          <p class="company-name">Tech House Indonesia</p>
+          <div class="job-meta">
+            <span>Bandung</span>
+            <span>Fresh Graduate</span>
+            <span>React.js</span>
+          </div>
+          <div class="spacer"></div>
+          <hr />
+          <button class="apply-link">Lihat Detail Posisi</button>
+        </div>
+
+        <!-- Job 3 -->
+        <div
+          class="job-card"
+          data-category="fulltime digital marketing jakarta portfolio"
+          data-title="Digital Marketing Associate"
+          data-company="Rintis Edukasi"
+          data-type="Full Time"
+          data-desc="Membantu mengeksekusi kampanye digital, melakukan riset audiens, serta menganalisis performa konten organik & ads."
+          data-req="Familiar dengan Social Media Management; Analytical thinking; Kreatif"
+          data-benefit="Lingkungan kerja dinamis; Kesempatan memimpin project; Asuransi"
+        >
+          <div class="job-top">
+            <div>
+              <div class="job-tag">Full Time</div>
+              <h3>Digital Marketing Associate</h3>
+            </div>
+            <button class="bookmark-btn">☆</button>
+          </div>
+          <p class="company-name">Rintis Edukasi</p>
+          <div class="job-meta">
+            <span>Jakarta Pusat</span>
+            <span>Entry Level</span>
+            <span>Ads Basic</span>
+          </div>
+          <div class="spacer"></div>
+          <hr />
+          <button class="apply-link">Lihat Detail Posisi</button>
+        </div>
+      </div>
+
+      <!-- Job 4 -->
+      <div
+        class="job-card"
+        data-category="intern uiux figma bandung design"
+        data-title="UI/UX Designer Intern"
+        data-company="Pixel Studio"
+        data-type="Internship"
+        data-desc="Membantu membuat wireframe, prototype, dan desain antarmuka aplikasi berbasis mobile maupun web."
+        data-req="Figma; Creative thinking; Basic UI Design"
+        data-benefit="Mentorship; Sertifikat; Flexible Working"
+      >
+        <div class="job-top">
+          <div>
+            <div class="job-tag">Internship</div>
+            <h3>UI/UX Designer Intern</h3>
+          </div>
+          <button class="bookmark-btn">☆</button>
+        </div>
+
+        <p class="company-name">Pixel Studio</p>
+
+        <div class="job-meta">
+          <span>Bandung</span>
+          <span>Mahasiswa</span>
+          <span>Figma</span>
+        </div>
+
+        <div class="spacer"></div>
+        <hr />
+
+        <button class="apply-link">Lihat Detail Posisi</button>
+      </div>
+
+      <!-- Job 5 -->
+      <div
+        class="job-card"
+        data-category="frontend react javascript remote"
+        data-title="Frontend Developer"
+        data-company="CodeSphere"
+        data-type="Remote"
+        data-desc="Mengembangkan tampilan website menggunakan HTML, CSS, JavaScript dan framework modern."
+        data-req="HTML CSS JS; React Basic; Teamwork"
+        data-benefit="WFH; Flexible Hour; Bonus Project"
+      >
+        <div class="job-top">
+          <div>
+            <div class="job-tag">Remote</div>
+            <h3>Frontend Developer</h3>
+          </div>
+          <button class="bookmark-btn">☆</button>
+        </div>
+
+        <p class="company-name">CodeSphere</p>
+
+        <div class="job-meta">
+          <span>Remote</span>
+          <span>Junior</span>
+          <span>React</span>
+        </div>
+
+        <div class="spacer"></div>
+        <hr />
+
+        <button class="apply-link">Lihat Detail Posisi</button>
+      </div>
+
+      <!-- Job 6 -->
+      <div
+        class="job-card"
+        data-category="data analyst excel sql hybrid"
+        data-title="Data Analyst Junior"
+        data-company="InsightLab"
+        data-type="Hybrid"
+        data-desc="Mengolah data, membuat dashboard, serta membantu tim mengambil keputusan berdasarkan analisis data."
+        data-req="Excel; SQL Basic; Problem Solving"
+        data-benefit="Career Growth; Training Program; Health Benefit"
+      >
+        <div class="job-top">
+          <div>
+            <div class="job-tag">Hybrid</div>
+            <h3>Data Analyst Junior</h3>
+          </div>
+          <button class="bookmark-btn">☆</button>
+        </div>
+
+        <p class="company-name">InsightLab</p>
+
+        <div class="job-meta">
+          <span>Surabaya</span>
+          <span>Entry Level</span>
+          <span>SQL</span>
+        </div>
+
+        <div class="spacer"></div>
+        <hr />
+
+        <button class="apply-link">Lihat Detail Posisi</button>
+      </div>
+
+      <p class="empty-message" id="emptyMessage">
+        Hmm, lowongan tidak ditemukan. Coba sesuaikan kata kuncimu.
+      </p>
+    </section>
+
+    <section class="section" id="checklist">
+      <div class="section-title" data-aos="fade-up">
+        <span>Checklist Persiapan</span>
+        <h2>Cek kesiapanmu sebelum mulai melamar.</h2>
+        <p>
+          Checklist kotak di bawah ini untuk memastikan kamu sudah siap 100%
+          sebelum mengirimkan lamaran kerja pertamamu.
+        </p>
+      </div>
+
+      <div class="checklist-grid">
+        <div class="checklist-card" data-aos="fade-up">
+          <h3>Dokumen Dasar</h3>
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> CV sudah rapi dan
+            terbaru
+          </label>
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> Portofolio atau
+            project sudah siap</label
+          >
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> Email profesional
+            sudah digunakan</label
+          >
+        </div>
+
+        <div class="checklist-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Profil Digital</h3>
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> LinkedIn sudah
+            diperbarui
+          </label>
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> GitHub/Behance/Drive
+            portfolio siap</label
+          >
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> Foto profil terlihat
+            profesional
+          </label>
+        </div>
+
+        <div class="checklist-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Persiapan Interview</h3>
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> Latihan perkenalan
+            diri
+          </label>
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> Mempelajari
+            perusahaan tujuan
+          </label>
+          <label class="check-item"
+            ><input type="checkbox" class="career-check" /> Menyiapkan
+            pertanyaan untuk HR</label
+          >
+        </div>
+      </div>
+
+      <div class="progress-wrap" data-aos="zoom-in">
+        <div class="progress-text" id="progressText">Progress kesiapan: 0%</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tips">
+      <div class="section-title" data-aos="fade-up">
+        <span>Career Tips</span>
+        <h2>Tips singkat sebelum mengirim lamaran.</h2>
+        <p>
+          Bagian ini berisi arahan praktis agar pengguna tidak hanya melihat
+          lowongan, tetapi juga tahu cara menyiapkan diri sebelum melamar.
+        </p>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card" data-aos="fade-up">
+          <div class="number">01</div>
+          <h3>CV Jangan Terlalu Panjang</h3>
+          <p>
+            Untuk mahasiswa dan fresh graduate, CV cukup 1 halaman. Fokus pada
+            pengalaman organisasi, project, skill, dan pencapaian yang relevan
+            dengan posisi yang dilamar.
+          </p>
+        </div>
+
+        <div class="tip-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="number">02</div>
+          <h3>Portofolio Lebih Meyakinkan</h3>
+          <p>
+            Tampilkan 2 sampai 3 karya terbaik. Jelaskan masalah yang
+            diselesaikan, proses pengerjaan, tools yang digunakan, dan hasil
+            akhirnya secara singkat.
+          </p>
+        </div>
+
+        <div class="tip-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="number">03</div>
+          <h3>Latihan Interview Dasar</h3>
+          <p>
+            Siapkan jawaban untuk perkenalan diri, alasan melamar, kelebihan,
+            kekurangan, pengalaman organisasi, dan project yang paling kamu
+            kuasai.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps section" id="alur">
+      <div class="section-title" data-aos="fade-up">
+        <span>Alur Penggunaan</span>
+        <h2>
+          Cari kerja tidak harus langsung sempurna, yang penting berani mulai.
+        </h2>
+        <p>
+          Hanya dengan 3 langkah sederhana untuk mendekatkan diri ke pekerjaan
+          impianmu.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card" data-aos="fade-up">
+          <span>Langkah 1</span>
+          <h3>Buat Profil</h3>
+          <p>
+            Lengkapi data diri, latar belakang pendidikan, keahlian utama, dan
+            lampirkan portofolio terbaikmu.
+          </p>
+        </div>
+
+        <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+          <span>Langkah 2</span>
+          <h3>Pilih Lowongan</h3>
+          <p>Cari lowongan sesuai minat, lokasi, dan kesiapan pengalamanmu.</p>
+        </div>
+
+        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+          <span>Langkah 3</span>
+          <h3>Kirim Lamaran</h3>
+          <p>
+            Klik 'Lamar', pantau status proses rekrutmen di dashboard, dan
+            bersiaplah untuk dipanggil interview.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="testimoni">
+      <div class="section-title" data-aos="fade-up">
+        <span>Testimoni Pengguna</span>
+        <h2>Apa kata mereka setelah menggunakan KarierMuda?</h2>
+        <p>
+          Pengalaman dari mahasiswa dan fresh graduate yang mulai menemukan arah
+          karier mereka dengan bantuan fitur KarierMuda.
+        </p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card" data-aos="fade-up">
+          <p>
+            “Awalnya bingung harus mulai dari mana karena belum punya
+            pengalaman. Setelah pakai KarierMuda, aku jadi tahu cara menyusun CV
+            dan cari lowongan yang cocok.”
+          </p>
+          <div class="student">
+            <img src="src/img/salwa.jpeg" alt="Salwa Khoerunisa Pendek" />
+            <div>
+              <strong>Salwa Khoerunisa</strong>
+              <span>Medical Lab Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
+          <p>
+            “Filter lowongannya enak dipakai. Aku jadi lebih cepat nemu posisi
+            magang yang sesuai dengan bidangku tanpa harus buka banyak situs.”
+          </p>
+          <div class="student">
+            <img src="src/img/rendy.png" alt="Muhammad Rendy" />
+            <div>
+              <strong>Muhammad Rendy</strong>
+              <span>Informatics Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <p>
+            “Checklist persiapannya ngebantu banget. Jadi nggak asal kirim
+            lamaran dan lebih siap waktu masuk tahap interview.”
+          </p>
+          <div class="student">
+            <img src="src/img/farrel.png" alt="Muhammad Farrel" />
+            <div>
+              <strong>Muhammad Farrel</strong>
+              <span>Fresh Graduate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-title" data-aos="fade-up">
+        <span>Pertanyaan Umum</span>
+        <h2>FAQ (Frequently Asked Questions)</h2>
+        <p>Punya kebingungan? Temukan jawabannya di sini sebelum kamu mulai.</p>
+      </div>
+
+      <div class="faq-wrapper" data-aos="fade-up">
+        <div class="faq-item">
+          <button class="faq-question">
+            Apakah KarierMuda benar-benar gratis? <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <br />Ya, platform kami 100% gratis digunakan untuk seluruh pelajar,
+            mahasiswa, maupun fresh graduate. Kami bermitra langsung dengan
+            perusahaan.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Saya belum punya pengalaman kerja sama sekali, apakah bisa?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <br />Tentu! Kami mengkurasi secara khusus lowongan yang ramah untuk
+            entry-level. Kamu bisa menonjolkan project kampus atau aktivitas
+            organisasimu di CV.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Bagaimana cara agar lamaran saya cepat di-notice HR? <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <br />Gunakan fitur 'Checklist' kami untuk memastikan dokumenmu
+            berstandar profesional. CV yang ATS-Friendly dan melampirkan
+            portofolio terbukti meningkatkan peluang hingga 60%.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section section" id="daftar">
+      <div class="interest-box" data-aos="fade-up">
+        <div class="interest-info">
+          <span class="label">Berlangganan</span>
+          <h2>Dapatkan info lowongan yang sesuai dengan minatmu.</h2>
+          <p>
+            Tinggalkan data minatmu di sini. Tim kami akan mengirimkan pekerjaan
+            yang paling relevan setiap minggunya.
+          </p>
+        </div>
+
+        <form id="interestForm">
+          <input type="text" placeholder="Nama Lengkap" required />
+          <input type="email" placeholder="Email Profesional" required />
+          <select required>
+            <option value="" disabled selected>Pilih Bidang Minat Utama</option>
+            <option>UI/UX Design</option>
+            <option>Software Engineering</option>
+            <option>Data & Analytics</option>
+            <option>Digital Marketing</option>
+            <option>Creative & Content</option>
+          </select>
+          <textarea
+            placeholder="Ceritakan sekilas apa yang sedang kamu pelajari saat ini..."
+          ></textarea>
+          <button type="submit" class="btn">Kirim & Berlangganan</button>
+          <div class="form-message" id="formMessage">
+            Sip! Data minatmu berhasil disimpan. Cek emailmu segera.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="cta section" id="mulai">
+      <div data-aos="zoom-in">
+        <h2>Siapkan langkah pertama menuju karier yang kamu mau.</h2>
+        <p>
+          Mulai dari satu profil sederhana, lalu temukan peluang magang,
+          freelance, atau pekerjaan pertamamu.
+        </p>
+        <a href="#daftar" class="btn">Buat Profil Sekarang</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="logo" style="font-size: 20px">Karier<span>Muda</span></div>
+      <div>&copy; 2026 Hak Cipta Dilindungi.</div>
+    </footer>
+
+    <button class="back-top" id="backTop">
+      <svg
+        width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path d="M5 15l7-7 7 7"></path>
+      </svg>
+    </button>
+
+    <div class="toast" id="toast">Notifikasi</div>
+
+    <!-- Modal Layout -->
+    <div class="modal" id="jobModal">
+      <div class="modal-content">
+        <button class="close-modal" id="closeModal">&times;</button>
+        <div class="modal-tag" id="modalType">Magang</div>
+        <h3 id="modalTitle">Judul Posisi</h3>
+        <p class="modal-company" id="modalCompany">Nama Perusahaan</p>
+
+        <div class="modal-section">
+          <h4>Tentang Pekerjaan</h4>
+          <p id="modalDesc"></p>
+        </div>
+
+        <div class="modal-section">
+          <h4>Kualifikasi Minimal</h4>
+          <ul id="modalReq"></ul>
+        </div>
+
+        <div class="modal-section">
+          <h4>Benefit / Keuntungan</h4>
+          <ul id="modalBenefit"></ul>
+        </div>
+
+        <div class="modal-actions">
+          <a href="#daftar" class="btn" id="applyFromModal">Lamar Posisi Ini</a>
+          <button class="btn btn-outline" id="closeModalBottom">Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 800,
+        easing: "ease-out-cubic",
+        once: true,
+        offset: 50,
+      });
+
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.getElementById("loader").classList.add("hide");
+        }, 800);
+      });
+
+      const toast = document.getElementById("toast");
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      }
+
+      const themeToggle = document.getElementById("themeToggle");
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
+        themeToggle.innerHTML = isDark
+          ? `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg> Terang`
+          : `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg> Gelap`;
+        showToast(
+          isDark ? "Dark mode diaktifkan 🌙" : "Light mode diaktifkan ☀️",
+        );
+      });
+
+      const counters = document.querySelectorAll(".counter");
+      let counterStarted = false;
+
+      function startCounter() {
+        if (counterStarted) return;
+        const statsSection = document.querySelector(".stats");
+        if (statsSection) {
+          const sectionTop = statsSection.getBoundingClientRect().top;
+          if (sectionTop < window.innerHeight - 100) {
+            counterStarted = true;
+            counters.forEach((counter) => {
+              const target = +counter.dataset.target;
+              let count = 0;
+              const increment = Math.ceil(target / 60);
+              const update = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                  counter.textContent = target;
+                  clearInterval(update);
+                } else {
+                  counter.textContent = count;
+                }
+              }, 25);
+            });
+          }
+        }
+      }
+
+      window.addEventListener("scroll", startCounter);
+      startCounter();
+
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const jobCards = document.querySelectorAll(".job-card");
+      const searchInput = document.getElementById("searchInput");
+      const emptyMessage = document.getElementById("emptyMessage");
+      let currentFilter = "semua";
+
+      function filterJobs() {
+        const keyword = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        jobCards.forEach((card) => {
+          const categories = card.getAttribute("data-category").toLowerCase();
+          const title = card.getAttribute("data-title").toLowerCase();
+          const company = card.getAttribute("data-company").toLowerCase();
+          const combinedText = categories + " " + title + " " + company;
+
+          const matchSaved =
+            currentFilter === "saved"
+              ? card.classList.contains("saved-card")
+              : true;
+          const matchFilter =
+            currentFilter === "semua" ||
+            currentFilter === "saved" ||
+            categories.includes(currentFilter);
+          const matchKeyword = keyword === "" || combinedText.includes(keyword);
+
+          if (matchSaved && matchFilter && matchKeyword) {
+            card.classList.remove("hide");
+            visibleCount++;
+          } else {
+            card.classList.add("hide");
+          }
+        });
+        emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          currentFilter = button.getAttribute("data-filter");
+          filterJobs();
+        });
+      });
+
+      searchInput.addEventListener("input", filterJobs);
+
+      document.querySelectorAll(".bookmark-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".job-card");
+          card.classList.toggle("saved-card");
+          button.classList.toggle("saved");
+          button.innerHTML = button.classList.contains("saved") ? "★" : "☆";
+          showToast(
+            button.classList.contains("saved")
+              ? "Pekerjaan disimpan di Bookmark"
+              : "Dihapus dari Bookmark",
+          );
+          if (currentFilter === "saved") filterJobs();
+        });
+      });
+
+      const checks = document.querySelectorAll(".career-check");
+      const progressText = document.getElementById("progressText");
+      const progressFill = document.getElementById("progressFill");
+
+      function updateProgress() {
+        const total = checks.length;
+        const checked = document.querySelectorAll(
+          ".career-check:checked",
+        ).length;
+        const percent = Math.round((checked / total) * 100);
+
+        progressText.textContent = "Kesiapanmu: " + percent + "%";
+        progressFill.style.width = percent + "%";
+
+        if (percent === 100)
+          showToast("Luar Biasa! Kamu siap melamar kerja 🚀");
+      }
+
+      checks.forEach((check) =>
+        check.addEventListener("change", updateProgress),
+      );
+
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        question.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
+          faqItems.forEach((faq) => faq.classList.remove("active"));
+          if (!isActive) item.classList.add("active");
+        });
+      });
+
+      const interestForm = document.getElementById("interestForm");
+      const formMessage = document.getElementById("formMessage");
+      interestForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        formMessage.style.display = "block";
+        interestForm.reset();
+        showToast("Data minat berhasil dikirim!");
+        setTimeout(() => {
+          formMessage.style.display = "none";
+        }, 4000);
+      });
+
+      const modal = document.getElementById("jobModal");
+      const closeModalBtns = document.querySelectorAll(
+        "#closeModal, #closeModalBottom",
+      );
+      const applyFromModal = document.getElementById("applyFromModal");
+
+      document.querySelectorAll(".apply-link").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".job-card");
+          document.getElementById("modalType").textContent = card.dataset.type;
+          document.getElementById("modalTitle").textContent =
+            card.dataset.title;
+          document.getElementById("modalCompany").textContent =
+            card.dataset.company;
+          document.getElementById("modalDesc").textContent = card.dataset.desc;
+
+          const reqList = document.getElementById("modalReq");
+          reqList.innerHTML = "";
+          card.dataset.req
+            .split(";")
+            .forEach(
+              (item) => (reqList.innerHTML += `<li>${item.trim()}</li>`),
+            );
+
+          const benefitList = document.getElementById("modalBenefit");
+          benefitList.innerHTML = "";
+          card.dataset.benefit
+            .split(";")
+            .forEach(
+              (item) => (benefitList.innerHTML += `<li>${item.trim()}</li>`),
+            );
+
+          modal.classList.add("show");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      function hideModal() {
+        modal.classList.remove("show");
+        document.body.style.overflow = "auto";
+      }
+
+      closeModalBtns.forEach((btn) => btn.addEventListener("click", hideModal));
+      applyFromModal.addEventListener("click", () => {
+        hideModal();
+        setTimeout(() => {
+          document
+            .getElementById("daftar")
+            .scrollIntoView({ behavior: "smooth" });
+          showToast("Isi form di bawah untuk simulasi melamar.");
+        }, 300);
+      });
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) hideModal();
+      });
+
+      const backTop = document.getElementById("backTop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) backTop.classList.add("show");
+        else backTop.classList.remove("show");
+      });
+
+      backTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>
