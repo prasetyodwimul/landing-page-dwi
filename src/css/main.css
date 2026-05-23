@@ -612,11 +612,13 @@ nav a:hover {
 
 .jobs-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
 .job-card {
   display: flex;
   flex-direction: column;
+  min-height: 280px;
 }
 .job-card.hide {
   display: none;
