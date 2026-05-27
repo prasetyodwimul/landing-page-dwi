@@ -3082,3 +3082,41 @@ header nav {
   visibility: hidden;
   pointer-events: none;
 }
+
+/* =====================================================
+   FINAL PATCH: PROGRESS CHECKLIST BAR TERLIHAT
+   ===================================================== */
+.progress-wrap {
+  overflow: hidden !important;
+}
+
+.progress-bar {
+  position: relative !important;
+  width: 100% !important;
+  height: 14px !important;
+  background: #e9eef5 !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin-top: 16px !important;
+}
+
+body.dark .progress-bar {
+  background: #0f172a !important;
+}
+
+.progress-fill {
+  display: block !important;
+  height: 100% !important;
+  width: 0%;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #4f46e5, #9333ea) !important;
+  box-shadow: 0 0 18px rgba(79, 70, 229, 0.35) !important;
+  transition: width 0.55s ease !important;
+}
+
+body.dark .progress-fill {
+  background: linear-gradient(90deg, #8b8eff, #c084fc) !important;
+  box-shadow: 0 0 20px rgba(139, 142, 255, 0.45) !important;
+}

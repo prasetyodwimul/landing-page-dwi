@@ -469,7 +469,14 @@
       <div class="progress-wrap" data-aos="zoom-in">
         <div class="progress-text" id="progressText">Progress kesiapan: 0%</div>
         <div class="progress-bar">
-          <div class="progress-fill" id="progressFill"></div>
+          <div
+            class="progress-fill"
+            id="progressFill"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          ></div>
         </div>
       </div>
     </section>
@@ -980,18 +987,27 @@
         const checked = document.querySelectorAll(
           ".career-check:checked",
         ).length;
-        const percent = Math.round((checked / total) * 100);
+        const percent = total ? Math.round((checked / total) * 100) : 0;
 
-        progressText.textContent = "Kesiapanmu: " + percent + "%";
-        progressFill.style.width = percent + "%";
+        if (progressText) {
+          progressText.textContent = "Kesiapanmu: " + percent + "%";
+        }
 
-        if (percent === 100)
-          showToast("Luar Biasa! Kamu siap melamar kerja 🚀");
+        if (progressFill) {
+          progressFill.style.width = percent + "%";
+          progressFill.setAttribute("aria-valuenow", percent);
+        }
+
+        if (percent === 100) {
+          showToast("Luar biasa! Kamu siap melamar kerja.");
+        }
       }
 
-      checks.forEach((check) =>
-        check.addEventListener("change", updateProgress),
-      );
+      checks.forEach((check) => {
+        check.addEventListener("change", updateProgress);
+      });
+
+      updateProgress();
 
       const faqItems = document.querySelectorAll(".faq-item");
       faqItems.forEach((item) => {
