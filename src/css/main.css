@@ -2473,3 +2473,143 @@ body.dark .gradient-text {
     min-height: auto;
   }
 }
+
+/* =========================
+   MOBILE OVERFLOW FINAL FIX
+   ========================= */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+}
+
+header,
+main,
+section,
+footer,
+.hero,
+.section,
+.steps,
+.features,
+.partners,
+.testimonials,
+.stats,
+.form-section,
+.contact-mini,
+.cta {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+* {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  header,
+  .hero,
+  .section,
+  footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .steps {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .steps-grid,
+  .jobs-grid,
+  .feature-grid,
+  .tips-grid,
+  .testimonial-grid,
+  .checklist-grid,
+  .partner-grid,
+  .stats-grid,
+  .contact-box {
+    grid-template-columns: 1fr !important;
+    width: 100%;
+  }
+
+  .step-card,
+  .job-card,
+  .feature-card,
+  .tip-card,
+  .testimonial-card,
+  .checklist-card,
+  .contact-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-panel,
+  .interest-box,
+  .progress-wrap,
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .filter-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  nav ul {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  header,
+  .hero,
+  .section,
+  footer,
+  .steps {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .steps .section-title h2 {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .steps .section-title p {
+    font-size: 16px;
+  }
+
+  .step-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  header,
+  .hero,
+  .section,
+  footer,
+  .steps {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
