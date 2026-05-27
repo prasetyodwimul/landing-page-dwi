@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="src/css/main.css?v=20" />
+    <link rel="stylesheet" href="src/css/main.css?v=9999" />
   </head>
 
   <body>
@@ -810,27 +810,33 @@
       const navMenu = document.getElementById("navMenu");
 
       if (menuToggle && navMenu) {
+        function closeMobileMenu() {
+          navMenu.classList.remove("active");
+          menuToggle.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("menu-open");
+        }
+
         menuToggle.addEventListener("click", (e) => {
+          e.preventDefault();
           e.stopPropagation();
           const isOpen = navMenu.classList.toggle("active");
           menuToggle.classList.toggle("active", isOpen);
           menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          document.body.classList.toggle("menu-open", isOpen);
         });
 
-        navMenu.querySelectorAll("a, button").forEach((item) => {
-          item.addEventListener("click", () => {
-            if (item.id === "themeToggle") return;
-            navMenu.classList.remove("active");
-            menuToggle.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-          });
+        navMenu.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const target = e.target.closest("a, button");
+          if (!target) return;
+          if (target.id === "themeToggle") return;
+          closeMobileMenu();
         });
 
         document.addEventListener("click", (e) => {
           if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-            navMenu.classList.remove("active");
-            menuToggle.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
+            closeMobileMenu();
           }
         });
       }

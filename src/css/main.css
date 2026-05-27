@@ -98,13 +98,14 @@ h3,
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
+  z-index: 999999 !important;
   transition: 0.5s ease;
 }
 
 .loader.hide {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .loader-box {
@@ -2693,4 +2694,391 @@ header {
   nav ul#navMenu a:hover {
     background: var(--input);
   }
+}
+
+/* =========================
+   MOBILE NAVBAR FINAL FIX
+   Menu dibuat jadi panel penuh supaya klik tidak tembus ke button halaman.
+   ========================= */
+@media (max-width: 992px) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 999999;
+    overflow: visible;
+  }
+
+  nav {
+    position: relative;
+    overflow: visible;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: relative;
+    z-index: 1000001;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  nav ul#navMenu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: none;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 22px 20px 34px;
+    background: var(--bg);
+    border: none;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+
+    z-index: 1000000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: 0.25s ease;
+  }
+
+  nav ul#navMenu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  nav ul#navMenu li {
+    width: 100%;
+    list-style: none;
+  }
+
+  nav ul#navMenu a,
+  nav ul#navMenu .theme-toggle {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    position: relative;
+    z-index: 1000002;
+    pointer-events: auto;
+  }
+
+  nav ul#navMenu a:hover,
+  nav ul#navMenu a:active {
+    background: var(--primary-soft);
+    color: var(--primary);
+  }
+
+  body.menu-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+/* CSS compatibility warning fix */
+.gradient-text,
+.floating-box strong,
+.stat-card h3 .counter,
+.progress-fill {
+  background-clip: text;
+}
+
+/* =========================
+   NAVBAR SCROLL NORMAL FINAL
+   Navbar tidak sticky/fixed, ikut hilang saat scroll.
+   Mobile menu tetap bisa diklik dan tidak tembus ke tombol halaman.
+   ========================= */
+header {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  overflow: visible !important;
+}
+
+body {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 992px) {
+  header {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    overflow: visible !important;
+  }
+
+  nav {
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    position: relative !important;
+    z-index: 1004 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+
+  nav ul#navMenu {
+    position: absolute !important;
+    top: calc(100% + 14px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+
+    padding: 18px !important;
+    background: var(--card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 20px !important;
+    box-shadow: var(--shadow-lg) !important;
+
+    z-index: 1003 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-12px) !important;
+    pointer-events: none !important;
+    transition: 0.25s ease !important;
+  }
+
+  nav ul#navMenu.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+
+  nav ul#navMenu li {
+    width: 100% !important;
+    list-style: none !important;
+  }
+
+  nav ul#navMenu a,
+  nav ul#navMenu .theme-toggle {
+    width: 100% !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+    position: relative !important;
+    z-index: 1005 !important;
+    pointer-events: auto !important;
+  }
+
+  nav ul#navMenu a:hover,
+  nav ul#navMenu a:active {
+    background: var(--primary-soft) !important;
+    color: var(--primary) !important;
+  }
+
+  body.menu-open {
+    overflow-x: hidden !important;
+    touch-action: auto !important;
+  }
+}
+
+/* =========================
+   FINAL NAVBAR SCROLL FIX
+   Navbar tetap muncul saat scroll
+   ========================= */
+header {
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  background: color-mix(in srgb, var(--bg) 88%, transparent) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 65%, transparent) !important;
+}
+
+nav {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 992px) {
+  header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    position: relative !important;
+    z-index: 10002 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+
+  nav ul#navMenu {
+    position: fixed !important;
+    top: 72px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    max-height: calc(100vh - 96px) !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 18px !important;
+    background: var(--card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28) !important;
+    z-index: 10001 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-14px) !important;
+    pointer-events: none !important;
+    transition: 0.25s ease !important;
+  }
+
+  nav ul#navMenu.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+
+  nav ul#navMenu li,
+  nav ul#navMenu a,
+  nav ul#navMenu .theme-toggle {
+    width: 100% !important;
+  }
+
+  nav ul#navMenu a,
+  nav ul#navMenu .theme-toggle {
+    min-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+    background: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+    position: relative !important;
+    z-index: 10003 !important;
+    pointer-events: auto !important;
+  }
+
+  body.menu-open {
+    overflow: hidden !important;
+  }
+}
+
+/* =====================================================
+   FINAL FIX: NAVBAR SELALU MUNCUL SAAT SCROLL
+   ===================================================== */
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+body {
+  padding-top: 86px !important;
+}
+
+header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99999 !important;
+  background: color-mix(in srgb, var(--bg) 92%, transparent) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent) !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+header nav {
+  position: relative !important;
+  z-index: 100000 !important;
+}
+
+@media (max-width: 992px) {
+  body {
+    padding-top: 78px !important;
+  }
+
+  header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 99999 !important;
+  }
+
+  .menu-toggle {
+    position: relative !important;
+    z-index: 100002 !important;
+    pointer-events: auto !important;
+  }
+
+  nav ul#navMenu {
+    position: fixed !important;
+    top: 78px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    z-index: 100001 !important;
+    pointer-events: none !important;
+  }
+
+  nav ul#navMenu.active {
+    pointer-events: auto !important;
+  }
+}
+
+/* =====================================================
+   FIX: SAAT LOADING, NAVBAR TERTUTUP TOTAL
+   ===================================================== */
+.loader {
+  z-index: 999999 !important;
+}
+
+.loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
