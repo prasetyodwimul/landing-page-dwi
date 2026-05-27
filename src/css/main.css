@@ -2613,3 +2613,84 @@ canvas {
     padding-right: 16px;
   }
 }
+
+/* =========================
+   MOBILE NAVBAR CLICK FIX
+   ========================= */
+header {
+  z-index: 99999;
+}
+
+.menu-toggle {
+  position: relative;
+  z-index: 100001;
+  pointer-events: auto;
+}
+
+@media (max-width: 992px) {
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    overflow: visible;
+  }
+
+  nav {
+    position: relative;
+    overflow: visible;
+  }
+
+  .menu-toggle {
+    display: flex;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  nav ul#navMenu {
+    position: fixed;
+    top: 72px;
+    left: 18px;
+    right: 18px;
+    width: auto;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    display: grid;
+    gap: 8px;
+    padding: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    z-index: 100000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-14px);
+    pointer-events: none;
+    transition: 0.25s ease;
+  }
+
+  nav ul#navMenu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  nav ul#navMenu li,
+  nav ul#navMenu a,
+  nav ul#navMenu .theme-toggle {
+    width: 100%;
+  }
+
+  nav ul#navMenu a {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  nav ul#navMenu a:hover {
+    background: var(--input);
+  }
+}
